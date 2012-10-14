@@ -83,7 +83,7 @@ for i in $(elinks --dump 1 http://$ADDRESS/server-status|grep "^[0-9]" \
   fi
 
   if [ "x$DEBUG" = "x0" ]; then
-    if [ "x$SYSLOG" = "x0" ]; then
+    if [ "x$SYSLOG" != "x0" ]; then
       echo $KILL_CMD - PID: $i $WORKDIR | logger -p local5.notice -t $0
     else
       echo $KILL_CMD - PID: $i $WORKDIR
